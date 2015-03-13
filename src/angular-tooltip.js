@@ -1,10 +1,10 @@
 (function(angular) {
   'use strict';
 
-  var module = angular.module('ngTooltip', ['ng']),
+  var module = angular.module('clipTooltip', ['ng']),
       extend = angular.extend;
 
-  module.provider('$tooltip', function() {
+  module.provider('clipTooltip', function() {
     // Default template for tooltips.
     var defaultTemplateUrl = 'template/ng-tooltip.html'
     this.setDefaultTemplateUrl = function(templateUrl) {
@@ -77,7 +77,7 @@
     }
   });
 
-  module.provider('$tooltipDirective', function() {
+  module.provider('clipTooltipDirective', function() {
 
     /**
      * Returns a factory function for building a directive for tooltips.
@@ -112,8 +112,8 @@
     };
   });
 
-  module.directive('ngTooltip', function($tooltipDirective) {
-    return $tooltipDirective('ngTooltip');
+  module.directive('clipTooltip', function(clipTooltipDirective) {
+    return $tooltipDirective('clipTooltip');
   });
 
   module.run(function($templateCache) {
