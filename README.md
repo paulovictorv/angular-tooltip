@@ -8,7 +8,7 @@ Simple and extensible abstraction for tooltips with AngularJS. Based on
 1. Install with bower:
 
    ```bash
-   $ bower install ng-modal --save-dev
+   $ bower install clip-tooltip --save-dev
    ```
 
 2. Include angular-tooltip and tether:
@@ -21,7 +21,7 @@ Simple and extensible abstraction for tooltips with AngularJS. Based on
 3. Add angular-tooltip as a dependency to your app:
 
    ```javascript
-   angular.module('your-app', ['ngTooltip']);
+   angular.module('your-app', ['clipTooltip']);
    ```
 
 ## Usage
@@ -32,7 +32,7 @@ Angular Tooltip gives you an `ng-tooltip` directive that you can use for simple
 text only tooltips:
 
 ```html
-<a href="" ng-tooltip="Click Me!">Go</a>
+<a href="" clip-tooltip="Click Me!">Go</a>
 ```
 
 ### Advanced Tooltips
@@ -44,12 +44,12 @@ function provides you with `open` and `close` methods that you can use to
 show and hide the tooltip.
 
 ```javascript
-module.directive('myTooltip', function($tooltip) {
+module.directive('myTooltip', function(clipTooltip) {
   return {
     restrict: 'EA',
     scope: { show: '=myTooltip' },
     link: function(scope, elem) {
-      var tooltip = $tooltip({
+      var tooltip = clipTooltip({
         target: elem,
         scope: scope,
         templateUrl: 'template/my-tooltip.html'
