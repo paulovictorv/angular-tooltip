@@ -84,7 +84,7 @@
      *
      * @param {String} name - The name of the directive.
      */
-    this.$get = function($tooltip) {
+    this.$get = function(clipTooltip) {
       return function(name, options) {
         return {
           restrict: 'EA',
@@ -93,7 +93,7 @@
             tether:  '=?' + name + 'Tether'
           },
           link: function(scope, elem, attrs) {
-            var tooltip = $tooltip(extend({
+            var tooltip = clipTooltip(extend({
               target: elem,
               scope: scope
             }, options, { tether: scope.tether }));
@@ -113,7 +113,7 @@
   });
 
   module.directive('clipTooltip', function(clipTooltipDirective) {
-    return $tooltipDirective('clipTooltip');
+    return clipTooltipDirective('clipTooltip');
   });
 
   module.run(function($templateCache) {
